@@ -9,11 +9,11 @@ class GemeenteDAO{
 			$sql = "INSERT INTO gemeente (Nis_Code,Show,GemeenteNaam)
 					values (:Nis_Code,:Show,:GemeenteNaam)"; 	
 		
+			print $nisCode . $show . $gemeente . '<br>';
+			print_r(DBConfig::$DB_CONNSTRING . DBConfig::$DB_USERNAME . DBConfig::$DB_PASSWORD);
+			$dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD); 
+
 		
-		
-			$connection = new PDO('mysql:host=localhost;dbname=verkiezingen','root','usbw');
-			
-			print_r($connection); exit();
 			$stmt = $dbh->prepare($sql); 
 
 			$stmt->execute(array(
